@@ -1663,7 +1663,41 @@ from tbFilme, tbSessao, tbEspectador
 where data_sessao = '2024-01-23' and nome_espec = 'Osmar Araujo' and
 tbFilme.codigo_filme = tbSessao.codigo_filme;*/
 
+select avg(idade_espec) as "media de idade das meninas"
+from tbEspectador
+where sexo_espec = 'Feminino';
 
+select sum(idade_espec) as "soma idade das meninas"
+from tbEspectador
+where sexo_espec = 'Feminino';
+
+
+select sum(valor_ingresso) as "Faturamento cinema"
+from tbIngresso;
+
+select min(valor_ingresso) as "ingresso mais barato"
+from tbIngresso;
+
+select max(idade_espec) as "Menina mais velha"
+from tbEspectador
+where sexo_espec = 'Feminino';
+
+select count(nome_filme) as "Quantidade de filmes de drama"
+from tbFilme
+where categoria_filme = 'Drama';
+
+select count(nome_filme) as "Lançados antes de 2000"
+from tbFilme
+where ano_filme < 2000;
+
+select count(*) as "Lançados antes de 2000"
+from tbFilme
+where ano_filme < 2*(10*10*10);
+
+select count(categoria_filme) , categoria_filme 
+from tbFilme
+group by categoria_filme
+order by count(categoria_filme) desc;
 
 
 
